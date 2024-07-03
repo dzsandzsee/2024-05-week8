@@ -1,29 +1,12 @@
-//import * as fs from 'node:fs';
-const { captureRejectionSymbol } = require('node:events');
-const fs = require('node:fs')
+async function fetchData() {
 
-/* try {
-  const data = fs.readFileSync('file.json', 'utf8');
-  console.log(data);
-  const jsonData = JSON.parse(data)
-  console.log(jsonData)
-} catch (err) {
-  console.error('Error reading the file:', err);
-} */
+const fetchResult = await fetch("https://swapi.dev/api/people/");
+const data = await fetchResult.json();
+console.log(data.results)
+}
+fetchData()
 
-fs.readFile('file.json', 'utf8', (err, data) => {
-    if (err) {
-      console.error('Error reading the file:', err);
-      return;
-    }
 
-    console.log(data);
-
-    try{
-        const jsonData = JSON.parse(data);
-        console.log(jsonData)
-
-    }catch (parsErr) {
-        console.err('Error at parsing the data', parsErr)
-    }
-  });
+/* fetch("https://swapi.dev/api/people/")
+    .then((response) =>  response.json())
+    .then(data => console.log(data)) */
