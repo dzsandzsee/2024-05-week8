@@ -1,0 +1,40 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+div.characters {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+div.character {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: rgba(20, 178, 178, 0.571);
+    padding: 10px;
+    
+}
+button.fetch{
+    display: block;
+    margin: 0 auto;
+    border-color: black;
+    background-color: aqua;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+button.fetch:hover {
+    background-color: black;
+    color: white
+    
+
+}
