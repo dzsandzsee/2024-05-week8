@@ -7,8 +7,11 @@
 
 div.characters {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 5px;
+    justify-content: center;
+    padding: 20px;
 }
 
 div.character {
@@ -19,6 +22,7 @@ div.character {
     border-radius: 10px;
     background-color: rgba(20, 178, 178, 0.571);
     padding: 10px;
+    width: 300px;
     
 }
 button.fetch{
