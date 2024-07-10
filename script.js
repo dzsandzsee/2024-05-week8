@@ -1,19 +1,31 @@
 let charactersData = []
 
 
-const characterComponent = (name, height, mass, index) => `
+const characterComponent = (name, height, mass, index, hairColor, eyeColor) => `
     <div class="character">
-    <h2> Character ${index + 1}: </h2>
-    <p class="name">${name}</p>
-    <p class="height">${height} cm</p>
-    <p class="mass">${mass} kg</p>
+        <h2> Character ${index + 1}: </h2>
+        <p class="name">${name}</p>
+        <p class="height">${height} cm</p>
+        <p class="mass">${mass} kg</p>
+
+        <button class="more">show more</button>
+        <div class="more-data">
+        <p class="hair-color">${hairColor}</p>
+        <p class="eyer-color">${eyeColor}</p>
+        </div>
     </div>
     `
 
 const charactersComponent = (charactersData) => `
 <div class ="characters">
 ${charactersData
-    .map((characterData, index) => characterComponent(characterData.name, characterData.height, characterData.mass, index))
+    .map((characterData, index) => characterComponent(
+        characterData.name,
+        characterData.height,
+        characterData.mass,
+        index,
+        characterData.hair_color,
+        characterData.eye_color))
     .join(" ")}
 </div>`
 
@@ -32,6 +44,16 @@ const makeDomFromData = (data, rootElement) => {
     const buttonHtml = `<button class="fetch"> Loading more... </button>`
 
     rootElement.insertAdjacentHTML("beforeend", charactersHtml)
+    const moreButtonElements = document.querySelectorAll("button.more")
+
+    moreButtonElements.forEach(moreButtonElement => moreButtonElement.addEventListener("click", () => 
+        {moreButtonElement.classList.toggle("clicked")
+            moreButtonElement.innerText ==="show more" ? moreButtonElement.innerText = "show less" : moreButtonElement.innerText = "show more"
+        }
+    
+        
+    ))
+
     if (data.next) {rootElement.insertAdjacentHTML("beforeend", buttonHtml)
 
     const buttonElement = document.querySelector("button.fetch")

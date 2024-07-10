@@ -23,14 +23,33 @@ div.character {
     background-color: rgba(20, 178, 178, 0.571);
     padding: 10px;
     width: 300px;
+    align-self: flex-start;
     
 }
+div.more-data {
+    height: 0px;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    
+}
+button.more.clicked ~ div.more-data{
+    height: 40px;
+    
+}
+div.character button {
+    width: 100px;
+    
+
+}
+
+
 button.fetch{
     display: block;
     margin: 0 auto;
     border-color: black;
-    background-color: aqua;
+    background-color: rgb(6, 49, 49);
     border-radius: 5px;
+    color: yellow;
     padding: 10px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
